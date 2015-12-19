@@ -20,13 +20,19 @@ def partition(filename):
                 num = ord(entry['business_id'][0:1]) % SERVER_NUM
             else:
                 print 'Neither business_id nor user_id exists!'
-                for i in range(1, SERVER_NUM + 1):
-                    f[i].close()
-                sys.exit(0)
-            f[num].write(line)
+                break
+            if 'checkin_info' in entry:
+                days = [0 for i in range(0, 7)]
+                for key in entry['checkin_info']:
+                    days[int(key.split('-')[1])] += 1
+                entry['checkin_info'] = {'Mon': days[1], 'Tue': days[2], 'Wed': days[3], 'Thu': days[4], 'Fri': days[5], 'Sat': days[6], 'Sun': days[0]}
+                f[num].write(json.dumps(entry))
+                f[num].write('\n')
+            else:
+                f[num].write(line)
 
-    for i in range(1, SERVER_NUM + 1):
-        f[i - 1].close()
+    for i in range(0, SERVER_NUM):
+        f[i].close()
 
 
 if __name__ == "__main__":
