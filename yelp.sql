@@ -23,7 +23,7 @@ drop table Business_Categories;
 create table Business_Categories(
     Business_ID     VARCHAR(25) NOT NULL,
     Category        VARCHAR(100),
-    PRIMARY KEY     (Business_ID)
+    PRIMARY KEY     (Business_ID, Category)
 );
 
 drop table User;
@@ -31,7 +31,7 @@ create table User(
     User_ID         VARCHAR(25) NOT NULL,
     Name            VARCHAR(15) NOT NULL,
     Review_Count    INTEGER,
-    Average_Stars   FLOAT,
+    Average_Stars   DOUBLE,
     Yelping_Since   DATE NOT NULL,
     Fans            INTEGER,
     PRIMARY KEY (User_ID)
@@ -41,7 +41,7 @@ drop table Business_Review;
 create table Business_Review(
     Business_ID     VARCHAR(25) NOT NULL,
     User_ID         VARCHAR(25) NOT NULL,
-    Stars           FLOAT,
+    Stars           DOUBLE,
     Text            TEXT,
     Date            DATE,
     PRIMARY KEY     (Business_ID),
