@@ -34,15 +34,20 @@ def partition(filename):
                     'Sun': days[0]}
                 f[num].write(json.dumps(entry))
                 f[num].write('\n')
-            else:
-                f[num].write(line)
+                continue
+            if 'yelping_since' in entry:
+                entry['yelping_since'] += '-00'
+                f[num].write(json.dumps(entry))
+                f[num].write('\n')
+                continue
+            f[num].write(line)
 
     for i in range(0, SERVER_NUM):
         f[i].close()
 
 
 if __name__ == "__main__":
-    partition('yelp_academic_dataset_business.json')
+    # partition('yelp_academic_dataset_business.json')
     partition('yelp_academic_dataset_user.json')
-    partition('yelp_academic_dataset_review.json')
-    partition('yelp_academic_dataset_checkin.json')
+    # partition('yelp_academic_dataset_review.json')
+    # partition('yelp_academic_dataset_checkin.json')
