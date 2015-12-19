@@ -1,12 +1,14 @@
 drop table Business;
 create table Business (
     Business_ID     VARCHAR(25) NOT NULL,
-    Address         VARCHAR(255),
-    City            VARCHAR(50),
-    State           VARCHAR(50),
+    Name            VARCHAR(20) NOT NULL,
+    Address         VARCHAR(100),
+    City            VARCHAR(15),
+    State           VARCHAR(5),
     Latitude        DOUBLE,
     Longitude       DOUBLE,
-    PRIMARY KEY (Business_ID)
+    Stars           DOUBLE,
+    PRIMARY KEY     (Business_ID)
 );
 
 drop table Business_Attributes;

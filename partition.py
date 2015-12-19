@@ -3,13 +3,15 @@ import json
 import pprint
 
 
-
 SERVER_NUM = 4
+
 
 def partition(filename):
     f = []
     for i in range(1, SERVER_NUM + 1):
-        f.append(open(filename[:filename.rfind('.')] + '_' + str(i) + '.json', 'w'))
+        f.append(open(
+            filename[:filename.rfind('.')] + '_' + str(i) + '.json',
+            'w'))
 
     with open(filename) as inputfile:
         for line in inputfile:
@@ -25,7 +27,11 @@ def partition(filename):
                 days = [0 for i in range(0, 7)]
                 for key in entry['checkin_info']:
                     days[int(key.split('-')[1])] += 1
-                entry['checkin_info'] = {'Mon': days[1], 'Tue': days[2], 'Wed': days[3], 'Thu': days[4], 'Fri': days[5], 'Sat': days[6], 'Sun': days[0]}
+                entry['checkin_info'] = {
+                    'Mon': days[1], 'Tue': days[2],
+                    'Wed': days[3], 'Thu': days[4],
+                    'Fri': days[5], 'Sat': days[6],
+                    'Sun': days[0]}
                 f[num].write(json.dumps(entry))
                 f[num].write('\n')
             else:
@@ -40,5 +46,3 @@ if __name__ == "__main__":
     partition('yelp_academic_dataset_user.json')
     partition('yelp_academic_dataset_review.json')
     partition('yelp_academic_dataset_checkin.json')
-
-
