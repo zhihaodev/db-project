@@ -7,9 +7,11 @@
     mysql_select_db($dbname, $con);
     echo 'Inserting table... <br \>';
 
+
+    // Insert Business table
     $fd = fopen("yelp_academic_dataset_business_1.json", "r");
     while (!feof($fd)) {
-        $line = fgets($fd, 8192); 
+        $line = fgets($fd, 10000); 
         $data = json_decode($line, true);
         $business_id = $data['business_id'];
 
@@ -21,13 +23,15 @@
         $longitude = $data['longitude'];
         $stars = $data['stars'];
         $sql = "INSERT INTO Business(Business_ID, Name, Address, City, State, Latitude, Longitude, Stars)
-                VALUES('$business_id', '$name', '$address', '$city', '$state', '$latitude', '$longitude', '$Stars')";
+                VALUES('$business_id', '$name', '$address', '$city', '$state', '$latitude', '$longitude', '$stars')";
         if(!mysql_query($sql, $con)) {
+            echo "Error: ".$line."<br \>";
             echo "Error: ".$sql."<br \>";
             echo 'Error:' .mysql_error()."<br \>";
             // die('Error:' .mysql_error());
         }
 
+        // Insert Attribute table
         $attributes = $data['attributes'];
         if (!empty($attributes)) {
             foreach ($attributes as $key => $value) {
@@ -59,6 +63,7 @@
             }
         }
         
+        // Insert Category table
         $categories = $data['categories'];
         if (!empty($categories)) {
             foreach ($categories as $category) {
@@ -67,6 +72,7 @@
                         VALUES('$business_id', '$category')";
                 if(!mysql_query($sql, $con)) {
                     echo "Error: ".$sql."<br \>";
+                    echo 'Error:' .mysql_error()."<br \>";
                     die('Error:' .mysql_error());
                 }
             }
@@ -74,10 +80,11 @@
     }
     fclose ($fd);
 
+
     // Insert User table
     $fd = fopen("yelp_academic_dataset_user_1.json", "r");
     while (!feof($fd)) {
-        $line = fgets($fd, 80000); 
+        $line = fgets($fd, 150000); 
         $data = json_decode($line, true);
         $user_id = $data['user_id'];
         $name = mysql_real_escape_string($data['name']);
@@ -95,7 +102,8 @@
     }
     fclose($fd);
 
-    // // Insert Review table
+
+    // Insert Review table
     $fd = fopen("yelp_academic_dataset_review_1.json", "r"); 
     while (!feof($fd)) { 
         $line = fgets($fd, 10000); 
@@ -116,7 +124,7 @@
     fclose($fd);
 
 
-    // // Insert Check_In table
+    // Insert Check_In table
     $fd = fopen("yelp_academic_dataset_checkin_1.json", "r"); 
     while (!feof($fd)) {
         $line = fgets($fd, 1024); 

@@ -16,14 +16,20 @@ create table Business_Attributes(
     Business_ID     VARCHAR(25) NOT NULL,
     Attribute       VARCHAR(50),
     Value           VARCHAR(10),
-    PRIMARY KEY     (Business_ID, Attribute)
+    PRIMARY KEY     (Business_ID, Attribute),
+    FOREIGN KEY     (Business_ID)
+        REFERENCES Business (Business_ID)
+        ON DELETE CASCADE
 );
 
 drop table Business_Categories;
 create table Business_Categories(
     Business_ID     VARCHAR(25) NOT NULL,
     Category        VARCHAR(100),
-    PRIMARY KEY     (Business_ID, Category)
+    PRIMARY KEY     (Business_ID, Category),
+    FOREIGN KEY     (Business_ID)
+        REFERENCES Business (Business_ID)
+        ON DELETE CASCADE
 );
 
 drop table User;
@@ -44,8 +50,10 @@ create table Business_Review(
     Stars           DOUBLE,
     Text            TEXT,
     Date            DATE,
-    PRIMARY KEY     (Business_ID),
-    FOREIGN KEY     (User_ID) REFERENCES User (User_ID)
+    PRIMARY KEY     (Business_ID, User_ID),
+    FOREIGN KEY     (User_ID)
+        REFERENCES User (User_ID)
+        ON DELETE CASCADE
 );
 
 drop table Check_In;
@@ -58,5 +66,8 @@ create table Check_In(
     Friday          INTEGER,
     Saturday        INTEGER,
     Sunday          INTEGER,
-    PRIMARY KEY     (Business_ID)
+    PRIMARY KEY     (Business_ID),
+    FOREIGN KEY     (Business_ID)
+        REFERENCES Business (Business_ID)
+        ON DELETE CASCADE
 );

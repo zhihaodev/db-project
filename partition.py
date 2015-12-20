@@ -5,6 +5,14 @@ import pprint
 
 SERVER_NUM = 4
 
+# def djb2(uuid):
+#     """DJB2 hash algorithm. Reference: https://gist.github.com/SaveTheRbtz/2117117 """
+
+#     _hash = 5381
+#     for i in xrange(0, len(uuid)):
+#        _hash = ((_hash << 5) + _hash) + ord(uuid[i])
+#     return _hash
+
 
 def partition(filename):
     f = []
@@ -18,8 +26,10 @@ def partition(filename):
             entry = json.loads(line)
             if 'user_id' in entry:
                 num = ord(entry['user_id'][0:1]) % SERVER_NUM
+                # num = djb2(entry['user_id'][:4]) % SERVER_NUM
             elif 'business_id' in entry:
                 num = ord(entry['business_id'][0:1]) % SERVER_NUM
+                # num = djb2(entry['business_id'][:4]) % SERVER_NUM
             else:
                 print 'Neither business_id nor user_id exists!'
                 break
