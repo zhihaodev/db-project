@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Starter Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Worldwide Business Evaluation System</a>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container-fluid">
+	<div class = "row">
+	<div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">United States <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">United kindom</a></li>
+            <li><a href="#">Germany</a></li>
+            <li><a href="#">Canada</a></li>
+	<!--
+            <li><a href="#">Branch & Breakfast</a></li>    
+	    <li><a href="#">Fast Food</li>
+            <li><a href="#">Hotel & Travel</a></li>            
+	    <li><a href="#">Shopping</a></li>
+            <li><a href="#">Health & Medical</a></li>
+            <li><a href="#">Home Services</a></li>
+	    <li><a href="#">Parks</a></li>
+            <li><a href="#">Gyms</a></li>
+	-->
+          </ul>
+        </div>
+
+	<form class = "form-horizontal" action="user_review.php" method = "post">
+		<div class = "form-group">
+			<label for = "username" class = "col-md-1 control-label">User Name</label>
+		<div class = "col-md-6">
+			<input type = "text" class = "form-control" name = "username" >
+		</div>
+		</div>
+<!--
+		 <div class = "form-group">
+                        <label for = "bussinesname" class = "col-md-1 control-label">Name (Optional)</label>
+                <div class = "col-md-6">
+                        <input type = "text" class = "form-control" name = "businessname" placeholder = "Brand Name">
+                </div>
+                </div>
+
+		<div class = "form-group">
+                        <label for = "location" class = "col-md-1 control-label">Near</label>
+                <div class = "col-md-6">
+                        <input type = "text" class = "form-control" name = "location" placeholder = " State, City">
+                </div>
+                </div>
+		<div class="form-group">
+   		   <div class="col-sm-offset-1 col-sm-10">
+      			<div class="checkbox">
+        			<label for = "wifi">
+          				<input type="checkbox" name = "wifi"> Wi-Fi
+        			</label>
+      			</div>
+    		   </div>
+  		</div>
+		<div class="form-group">
+                   <div class="col-sm-offset-1 col-sm-10">
+                        <div class="checkbox">
+                                <label for = "pet">
+                                        <input type="checkbox" name = "pet"> Dogs Allowed
+                                </label>
+                        </div>
+                   </div>
+                </div>
+		<div class="form-group">
+                   <div class="col-sm-offset-1 col-sm-10">
+                        <div class="checkbox">
+                                <label for = "smoke">
+                                        <input type="checkbox" name = "smoke"> Smoking
+                                </label>
+                        </div>
+                   </div>
+                </div>
+		<div class="form-group">
+                   <div class="col-sm-offset-1 col-sm-10">
+                        <div class="checkbox">
+                                <label for = "open24hours">
+                                        <input type="checkbox" name = "open24hours"> Open 24 Hours
+                                </label>
+                        </div>
+                   </div>
+                </div>
+                <div class="form-group">
+                   <div class="col-sm-offset-1 col-sm-10">
+                        <div class="checkbox">
+                                <label for = "parking">
+                                        <input type="checkbox" name = "parking"> Parking
+                                </label>
+                        </div>
+                   </div>
+                </div>
+                <div class="form-group">
+                   <div class="col-sm-offset-1 col-sm-10">
+                        <div class="checkbox">
+                                <label for = "reservation">
+                                        <input type="checkbox" name = "reservation"> Take Reservations
+                                </label>
+                        </div>
+                   </div>
+                </div>
+		
+                <div class = "form-group">
+                        <label for = "number" class = "col-md-1 control-label">Results Number</label>
+                <div class = "col-md-3">
+                        <input type = "text" class = "form-control" name = "number" placeholder = "1, 2, 3 ... 50">
+                </div>
+                </div>
+		-->
+		<div class = "form-group">
+		    <div class = "col-md-offset-1 col-md-1">
+			<button type = "submit" class = "btn btn-default">Search</button>
+		    </div>
+		</div>	
+	</form>
+<!--   
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:http://chop4naija.com/wp-content/uploads/2015/11/Restaurant.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h	4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+              <h4>Label</h4>
+              <span class="text-muted">Something else</span>
+            </div>
+-->
+</div>
+</div>
+	
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.11.3.min.js"><\/script>')</script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"></script>
+  </body>
+</html>
